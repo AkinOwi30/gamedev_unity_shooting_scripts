@@ -1,4 +1,7 @@
-//=======Absolute end of the script_Pistol_Bullet script===============
+//=======Absolute beginning of the script_Pistol_Bullet script===============
+
+//Pistol bullet script purpose
+//Controls bullet movement after you instantiate them, such as if you used my pistol script.
 
 
 using System.Collections;
