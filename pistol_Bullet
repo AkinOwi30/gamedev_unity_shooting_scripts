@@ -1,0 +1,47 @@
+//=======Absolute end of the script_Pistol_Bullet script===============
+
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+public class script_Pistol_Bullet : MonoBehaviour
+{//=========Beginning of script_Pistol_Bullet class=======================
+   
+    public GameObject bullet_Pistol;//The pistol bullet will be prefabbed, and its attributes like speed will be on that script 
+
+    public float lowZGoal = -10f;
+    public float highZGoal = 100f;
+    public float speed = 200.0f;
+    private int direction = 1;
+    public Vector3 movement;
+
+
+// Update is called once per frame
+    void Update()
+    {//Beginning of Update function
+
+        if (transform.position.z < lowZGoal)
+        {//Beginning of if (transform.position.y < bottomLimit)
+
+            direction = 1;
+
+        }//End of if (transform.position.y < bottomLimit)
+        else if (transform.position.z > highZGoal)
+        {//Beginning of else
+
+            direction = -1;
+
+        }//End of else
+
+        movement = Vector3.forward * direction * speed * Time.deltaTime;
+        transform.Translate(movement);
+
+    }//End of Update function
+
+
+
+}//=========End of script_Pistol_Bullet class=======================
+
+//=======Absolute end of the script_Pistol_Bullet script===============
