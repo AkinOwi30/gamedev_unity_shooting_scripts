@@ -1,0 +1,101 @@
+//---------------Absolute beginning of the script_Pistol script------------------------------- 
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+//Beginning of new usings===========
+using UnityEngine.UI;
+//End of new usings=================
+
+
+public class script_Pistol : MonoBehaviour
+{//Beginning of the script_Pistol class
+
+   //Beginning of button declarations 
+   public Button button_Shoot;
+   //End of button declarations
+   
+    public GameObject bullet_Pistol;//The pistol bullet will be prefabbed, and its attributes like speed will be on that script 
+
+    //Beginning of Bullets====================        
+    public GameObject regBulletGameObject;
+
+    public GameObject firePoint1;//novo
+    //=========End of Bullets===============
+    
+
+    // Start is called before the first frame update
+    void Start()
+    {//Beginning of Start function
+        
+    //The beginning of enabling the pause button
+        Button shootButton = button_Shoot.GetComponent<Button>();
+        shootButton.onClick.AddListener(pistol_ShootButtton_WasPressed);
+        //The end of enabling the pause button
+
+    }//End of Start function
+
+    // Update is called once per frame
+    void Update()
+    {//Beginning of Update the function
+        
+    }//End of Update the function
+
+
+        void pistol_ShootButtton_WasPressed()
+        {//Beginning of pistol_ShootButtton_WasPressed
+
+            Debug.Log("The pistol shoot button was pressed");
+            standardShot();
+
+        }//End of pistol_ShootButtton_WasPressed 
+
+
+
+        void standardShot()
+
+    {//---------Beginning of standardShot function---------------------
+
+
+        //=====Beginning of standardBullet instantiation===============================
+
+        // Instantiate the projectile at the position and rotation of this transform
+        GameObject clone;
+        GameObject powerUp_Clone;
+            //GameObject clone2;
+
+
+        //clone = Instantiate(regBulletGameObject, transform.forward * (transform.position.x, transform.position.y,transform.position.z + 8), transform.rotation);
+        // clone.transform.parent = null;//to stop it from moving based on the schooner
+
+        Vector3 playerPos = transform.position;
+        //Vector3 playerPos2 = (transform.position.x + 10);
+        Vector3 playerDirection = transform.forward;
+        Quaternion playerRotation = transform.rotation;
+        float spawnDistance = 0;
+
+        Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
+        //Vector3 spawnPos2 = (playerPos2 +  + playerDirection * spawnDistance);
+
+
+        //===============Beginning of actually firing bullets code==========================
+
+       // switch (bulletType)
+       // {//Beginnning of switch (bulletType)
+
+          
+                //clone = Instantiate(regBulletGameObject, spawnPos, playerRotation); --original 
+                Instantiate(regBulletGameObject, firePoint1.transform.position, firePoint1.transform.rotation);//novo for firepoint1
+                      
+
+    }//---------End of standardShot function------------------
+
+
+
+
+}//End of the script_Pistol class
+
+
+
+//---------------Absolute end of the script_Pistol script------------------------------- 
