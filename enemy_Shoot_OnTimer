@@ -1,0 +1,105 @@
+//The absolute beginning of script_Enemy_Shooting script~~~~~~~~~~~~~~~~~~~~ 
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+//Beginning of new usings===========
+using UnityEngine.UI;
+//End of new usings=================
+
+
+public class script_Enemy_Shooting : MonoBehaviour
+{//Beginning of public class script_Enemy_Shooting==================================
+
+    
+    //Beginning of Bullets====================        
+    public GameObject regBulletGameObject;
+    public GameObject firePoint1;//novo
+    //=========End of Bullets===============
+
+    //Beginning of timers~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+    public float timer;
+    public float timer_FireEverySecs;
+    //End of timers~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+    // Start is called before the first frame update
+    void Start()
+    {//Beginning of Start function
+      
+        timer = timer_FireEverySecs; 
+
+    }//End of Start function
+
+
+    private void Update()
+    {//Beginning of Update function
+
+        timer -= Time.deltaTime;
+       
+
+    }//End of Update function
+
+
+       void FixedUpdate()
+    {//Beginning of FixedUpdate function
+
+        
+
+            if (timer > 0)
+            {
+                
+                
+            }
+            else
+            {
+
+                enemyShoot();
+                timer = timer_FireEverySecs;
+            }
+       
+
+    }//End of FixedUpdate function
+
+
+    void enemyShoot()
+    {//---------Beginning of standardShot function---------------------
+
+
+        //=====Beginning of standardBullet instantiation===============================
+
+        // Instantiate the projectile at the position and rotation of this transform
+        GameObject clone;
+        GameObject powerUp_Clone;
+            
+
+
+        Vector3 enemyPos = transform.position;
+      
+        Vector3 enemyDirection = transform.forward;
+        Quaternion enemyRotation = transform.rotation;
+        float spawnDistance = 0;
+
+        Vector3 spawnPos = enemyPos + enemyDirection * spawnDistance;
+  
+
+
+        //===============Beginning of actually firing bullets code==========================
+
+                Instantiate(regBulletGameObject, firePoint1.transform.position, firePoint1.transform.rotation);
+
+        //===============End of actually firing bullets code===================================
+                      
+
+    }//---------End of standardShot function------------------
+
+ 
+
+    
+ 
+
+}//End of public class script_Enemy_Shooting==================================
+
+
+//The absolute End of script_Enemy_Shooting~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
